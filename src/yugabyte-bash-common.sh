@@ -107,6 +107,7 @@ detect_os() {
   is_centos=false
   is_alma=false
   is_rhel=false
+  is_amzn=false
   short_os_name="unknown_os"
 
   case $OSTYPE in
@@ -145,6 +146,9 @@ detect_os() {
         'rhel')
           is_rhel=true
           ;;
+        'amzn')
+          is_amzn=true
+          ;;
         *)
           warn "${short_os_name} is not a supported Linux distribution"
           ;;
@@ -173,6 +177,10 @@ is_alma() {
 
 is_rhel() {
   [[ $is_rhel == "true" ]]
+}
+
+is_amzn() {
+  [[ $is_amzn == "true" ]]
 }
 
 is_redhat_family() {
